@@ -1,9 +1,6 @@
 # Start with the official Jenkins image
 FROM jenkins/jenkins:lts
 
-# Set environment variables to improve JVM stability
-ENV JAVA_OPTS "-Xms512m -Xmx1024m -XX:+UnlockExperimentalVMOptions -XX:+UseContainerSupport"
-
 # Switch to root user to install packages
 USER root
 
