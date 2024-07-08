@@ -25,5 +25,5 @@ jobs:
       - name: Build and push Docker image for Jenkins
         run: |
           docker-compose -f docker-compose.jenkins.yml build
-          docker tag <image_name>:latest ${{ secrets.DOCKER_USERNAME }}/<image_name>:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/<image_name>:latest
+          docker tag jenkins_jenkins:latest ${{ secrets.DOCKER_USERNAME }}/jenkins_image:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/jenkins_image:latest
