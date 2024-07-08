@@ -6,9 +6,7 @@ networks:
 
 services:
   jenkins:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: marine1232/jenkins_image:latest
     container_name: Jenkins
     ports:
       - '8081:8080'
