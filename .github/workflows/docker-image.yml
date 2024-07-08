@@ -24,6 +24,5 @@ jobs:
 
       - name: Build and push Docker image for Jenkins
         run: |
-          docker build -t jenkins_image:latest .
-          docker tag jenkins_image:latest ${{ secrets.DOCKER_USERNAME }}/jenkins_image:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/jenkins_image
+          docker build -t marine1232/jenkins_image:latest -f Dockerfile .
+          docker push marine1232/jenkins_image:latest
