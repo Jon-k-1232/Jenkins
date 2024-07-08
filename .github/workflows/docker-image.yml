@@ -22,7 +22,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push Docker image for Nginx
+      - name: Build and push Docker image for Jenkins
         run: |
           docker-compose -f docker-compose.jenkins.yml build
-          docker-compose -f docker-compose.jenkins.yml push
+          docker tag <image_name>:latest ${{ secrets.DOCKER_USERNAME }}/<image_name>:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/<image_name>:latest
