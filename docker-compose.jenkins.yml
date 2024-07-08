@@ -6,10 +6,10 @@ networks:
 
 services:
   jenkins:
-    image: marine1232/jenkins_image:latest
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
+    # image: marine1232/jenkins_image:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: Jenkins
     ports:
       - '8081:8080'
@@ -17,6 +17,8 @@ services:
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JAVA_OPTS=-Xms512m -Xmx1024m -XX:+UnlockExperimentalVMOptions -XX:+UseContainerSupport
     privileged: true
     networks:
       - jenkins_network
